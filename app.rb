@@ -59,6 +59,8 @@ get '/about' do
 end
 
 get '/visit' do
+	db = get_db 
+     @results2 = db.execute 'select * from Barbers'
 	erb :visit
 end
 
@@ -69,6 +71,8 @@ post '/visit' do
 	@datetime = params[:datetime]
 	@barber = params[:barber]
 	@color = params[:color]
+
+	 
 
 	# хеш
 	hh = { 	:username => 'Введите имя',
