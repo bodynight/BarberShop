@@ -25,6 +25,11 @@ def get_db
 	return db
 end
 
+before do
+	db = get_db 
+    @results2 = db.execute 'select * from Barbers'
+end
+
 
 
 configure do
@@ -59,8 +64,7 @@ get '/about' do
 end
 
 get '/visit' do
-	db = get_db 
-     @results2 = db.execute 'select * from Barbers'
+
 	erb :visit
 end
 
